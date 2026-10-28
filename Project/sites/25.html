@@ -1,0 +1,138 @@
+<html>
+<head>
+    <title>Employee Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f3f4f6; padding: 20px; }
+        .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px 
+rgba(0,0,0,0.1); max-width: 500px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
+        label { font-weight: bold; margin-bottom: 5px; }
+        input, select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .row { display: flex; gap: 10px; }
+        video { width: 100%; max-width: 500px; border-radius: 8px; margin-bottom: 20px; }
+        .buttons { display: flex; gap: 10px; }
+        button, input[type="reset"] { flex: 1; padding: 10px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        button { background: #2563eb; color: #fff; }
+        input[type="reset"] { background: #ef4444; color: #fff; text-align: center; }
+        table { width: 100%; border-collapse: collapse; background: #fff; max-width: 500px; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background: #e5e7eb; }
+    </style>
+</head>
+<body>
+<video controls src="welcome.mp4"></video>
+<div class="container">
+    <h2>Employee Registration Form</h2>
+    <form id="empForm" onsubmit="validateAndDisplay(event)">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Pranav Anand" minlength="2" required>
+        </div>
+        <div class="form-group">
+            <label for="empId">Employee ID:</label>
+            <input type="text" id="empId" placeholder="EMP123" maxlength="10" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="pranav@company.com" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" minlength="6" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" minlength="6" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <div class="row">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dept">Department:</label>
+            <select id="dept" required>
+                <option value="">--Select Department--</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Skills:</label>
+            <div class="row">
+                <label><input type="checkbox" name="skills" value="HTML5"> HTML5</label>
+                <label><input type="checkbox" name="skills" value="CSS3"> CSS3</label>
+                <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone">Mobile Number:</label>
+            <input type="tel" id="phone" placeholder="1234567890" pattern="[0-9]{10}" required>
+        </div>
+        <div class="form-group">
+            <label for="photo">Upload Profile Photo:</label>
+            <input type="file" id="photo" accept="image/*" required>
+        </div>
+        <div class="buttons">
+            <button type="submit">Submit</button>
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+</div>
+<div id="tableOutput"></div>
+<script>
+function validateAndDisplay(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const empId = document.getElementById('empId').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const dob = document.getElementById('dob').value;
+    const dept = document.getElementById('dept').value;
+    const phone = document.getElementById('phone').value.trim();
+    const photo = document.getElementById('photo').files[0];
+    const genderRadio = document.querySelector('input[name="gender"]:checked');
+    const gender = genderRadio ? genderRadio.value : "";
+    const checkedSkills = [];
+    document.querySelectorAll('input[name="skills"]:checked').forEach(cb => {
+        checkedSkills.push(cb.value);
+    });
+    const skills = checkedSkills.join(', ');
+    if (!name || !empId || !email || !password || !confirmPassword || !dob || !gender || !dept || !skills || !
+phone || !photo) {
+        alert("All fields are mandatory!");
+        return;
+    }
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+    const fields = [
+        { field: "Full Name", value: name },
+        { field: "Employee ID", value: empId },
+        { field: "Email Address", value: email },
+        { field: "Date of Birth", value: dob },
+        { field: "Gender", value: gender },
+        { field: "Department", value: dept },
+        { field: "Skills", value: skills },
+        { field: "Mobile Number", value: phone },
+        { field: "Profile Photo", value: photo.name }
+    ];
+    let tableHtml = `<table><tr><th>Field</th><th>Submitted Value</th></tr>`;
+    fields.forEach(f => {
+        tableHtml += `<tr><td><strong>${f.field}</strong></td><td>${f.value}</td></tr>`;
+    });
+    tableHtml += `</table>`;
+    document.getElementById('tableOutput').innerHTML = tableHtml;
+}
+</script>
+</body>
+</html>

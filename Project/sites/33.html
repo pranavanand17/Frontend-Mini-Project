@@ -1,0 +1,32 @@
+<html>
+<head>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        h1 {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="text">Original Text</h1>
+    <button id="btn">Hover Me</button>
+    <script>
+        const text = document.getElementById('text');
+        const btn = document.getElementById('btn');
+        btn.addEventListener('mouseover', () => {
+            text.textContent = 'Welcome to VIT!';
+        });
+        btn.addEventListener('mouseout', () => {
+            text.textContent = 'Original Text';
+        });
+    </script>
+</body>
+</html>

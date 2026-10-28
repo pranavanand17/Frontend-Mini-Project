@@ -1,0 +1,48 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        #searchBox {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 2px solid #ccc;
+            outline: none;
+        }
+        #textDisplay {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #555;
+        }
+        #status {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchBox" placeholder="Search for products...">
+    <p id="textDisplay">Typed text: </p>
+    <p id="status"></p>
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const textDisplay = document.getElementById('textDisplay');
+
+        const status = document.getElementById('status');
+        searchBox.addEventListener('input', () => {
+            textDisplay.textContent = `Typed text: ${searchBox.value}`;
+            searchBox.style.backgroundColor = searchBox.value ? '#e8f0fe' : '#ffffff';
+        });
+        searchBox.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                status.textContent = `Searching for: ${searchBox.value}`;
+            }
+        });
+    </script>
+</body>
+</html>

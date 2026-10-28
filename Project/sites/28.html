@@ -1,0 +1,92 @@
+<html> 
+<head> 
+    <title>Course Registration</title> 
+ 
+
+    <script> 
+        function register() { 
+ 
+            var name = document.getElementById("name").value; 
+            var department = document.getElementById("dept").value; 
+            var languages = document.getElementById("languages"); 
+            var pattern = /^[A-Za-z ]+$/; 
+ 
+            if (name == "") { 
+                document.getElementById("error").innerHTML = "Enter Student Name"; 
+                return false; 
+            } 
+ 
+            if (!pattern.test(name)) { 
+                document.getElementById("error").innerHTML = "Name should contain only alphabets 
+and spaces"; 
+                return false; 
+            } 
+ 
+            var selected = ""; 
+ 
+            for (var i = 0; i < languages.options.length; i++) { 
+                if (languages.options[i].selected) { 
+                    selected = selected + languages.options[i].value + " "; 
+                } 
+            } 
+ 
+            document.getElementById("output").innerHTML = 
+                "Student Name: " + name + "<br>" + 
+                "Department: " + department + "<br>" + 
+                "Programming Languages: " + selected; 
+ 
+            return false; 
+        } 
+    </script> 
+</head> 
+ 
+<body> 
+ 
+<h1>Course Registration Form</h1> 
+ 
+<form onsubmit="return register()"> 
+ 
+    Student Name: 
+    <input type="text" id="name"> 
+    <br> 
+ 
+    <span id="error" style="color:red"></span> 
+ 
+    <br><br> 
+ 
+    Department: 
+ 
+    <select id="dept"> 
+        <option>CSE</option> 
+        <option>IT</option> 
+        <option>ECE</option> 
+        <option>EEE</option> 
+    </select> 
+ 
+    <br><br> 
+ 
+    Programming Languages: 
+ 
+    <br> 
+ 
+    <select id="languages" multiple> 
+ 
+        <option value="Java">Java</option> 
+        <option value="Python">Python</option> 
+        <option value="JavaScript">JavaScript</option> 
+        <option value="C++">C++</option> 
+ 
+    </select> 
+ 
+    <br><br> 
+ 
+    <input type="submit" value="Register"> 
+ 
+</form> 
+ 
+<br> 
+ 
+<div id="output"></div> 
+ 
+</body> 
+</html>

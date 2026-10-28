@@ -1,0 +1,54 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 200px;
+            letter-spacing: 5px;
+        }
+        p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="password" id="pin" maxlength="4" placeholder="Enter 4-digit PIN">
+    <p id="status"></p>
+    <p id="warn" class="error"></p>
+    <script>
+        const pin = document.getElementById('pin');
+        const status = document.getElementById('status');
+        const warn = document.getElementById('warn');
+        pin.addEventListener('keydown', (e) => {
+            warn.textContent = '';
+            if (e.key === 'Enter') {
+                status.textContent = 'PIN Submitted Successfully';
+                status.className = 'success';
+                return;
+            }
+            if (e.key.length === 1) {
+                if (e.key >= '0' && e.key <= '9') {
+                    status.textContent = 'PIN Entry Started';
+                    status.className = '';
+                } else {
+                    e.preventDefault();
+                    warn.textContent = 'Warning: Non-numeric key entered!';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

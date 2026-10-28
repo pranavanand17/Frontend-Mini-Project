@@ -1,0 +1,89 @@
+<html> 
+<head> 
+    <title>Student Login Web Page</title> 
+ 
+    <script> 
+        function login() { 
+            var username = document.getElementById("ue").value; 
+            var password = document.getElementById("pass").value; 
+            var error1 = document.getElementById("error1"); 
+            var error2 = document.getElementById("error2"); 
+            var output = document.getElementById("output"); 
+ 
+            error1.innerHTML = ""; 
+            error2.innerHTML = ""; 
+            output.innerHTML = ""; 
+ 
+            if (username == "") { 
+                error1.innerHTML = "Username is required"; 
+                return false; 
+            } 
+ 
+            if (password == "") { 
+                error2.innerHTML = "Password is required"; 
+                return false; 
+            } 
+ 
+            output.innerHTML = "Login Successful"; 
+            return false; 
+
+        } 
+    </script> 
+</head> 
+ 
+<body> 
+ 
+<audio controls> 
+    <source src="africa.mp3" type="audio/mp3"> 
+</audio> 
+ 
+<form onsubmit="return login()"> 
+ 
+    <label for="ue">Username or Email</label> 
+    <input type="text" id="ue" name="ue" placeholder="Username or Email"> 
+    <span id="error1" style="color:red"></span> 
+ 
+    <br><br> 
+ 
+    <label for="pass">Password</label> 
+    <input type="password" id="pass" name="pass" placeholder="Password"> 
+    <span id="error2" style="color:red"></span> 
+ 
+    <br><br> 
+ 
+    <label for="yes">Remember Me?</label> 
+    <input type="checkbox" id="yes" name="yes"> 
+ 
+    <br><br> 
+ 
+    <label>User Role</label> 
+    <br> 
+ 
+    <input type="radio" id="student" name="stud" value="Student"> 
+    <label for="student">Student</label> 
+ 
+    <br> 
+ 
+    <input type="radio" id="faculty" name="stud" value="Faculty"> 
+    <label for="faculty">Faculty</label> 
+ 
+    <br><br> 
+ 
+    <input type="submit" value="Login"> 
+    <input type="reset" value="Clear"> 
+ 
+</form> 
+ 
+<br> 
+ 
+<a href="forgot.html">Forgot Password</a> 
+<br> 
+ 
+<a href="new.html">Create New Account</a> 
+ 
+<br><br> 
+ 
+<div id="output"></div> 
+ 
+</body> 
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Watch all 41 original HTML sites as individual previews, in numerical order.">
+  <title>All sites — Mini Sites</title>
+  <link rel="stylesheet" href="gallery.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-page="gallery">
+  <header class="stream-header">
+    <a class="stream-brand" href="gallery.html" aria-label="Mini Sites home">
+      <span class="brand-icon">m</span>
+      <span>mini<span class="brand-light">sites</span></span>
+    </a>
+    <nav class="stream-nav" aria-label="Main navigation">
+      <a class="active" href="gallery.html">Browse all</a>
+      <a href="index.html">All-in-one page</a>
+    </nav>
+    <a class="stream-about" href="#collection">41 original sites <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main>
+    <section class="spotlight">
+      <div class="spotlight-glow"></div>
+      <div class="spotlight-content">
+        <div class="spotlight-kicker"><span class="live-dot"></span> THE COMPLETE COLLECTION <span class="kicker-rule"></span> 01 — 41</div>
+        <h1>Pick your<br><span>next little site.</span></h1>
+        <p>Forty-one original HTML projects, each with its own look. Find something you like, then open it on its own.</p>
+        <a class="spotlight-button" href="#collection"><span aria-hidden="true">▶</span> Explore all sites</a>
+        <div class="spotlight-meta"><span>01—41</span><i></i> HTML <i></i> CSS <i></i> JAVASCRIPT</div>
+      </div>
+      <div class="spotlight-mosaic" aria-hidden="true">
+        <div class="mosaic-window mosaic-large"><iframe src="sites/16.html" loading="lazy" tabindex="-1" title=""></iframe><span>GAMEZONE</span></div>
+        <div class="mosaic-window mosaic-small mosaic-top"><iframe src="sites/32.html" loading="lazy" tabindex="-1" title=""></iframe></div>
+        <div class="mosaic-window mosaic-small mosaic-bottom"><iframe src="sites/23.html" loading="lazy" tabindex="-1" title=""></iframe></div>
+        <div class="mosaic-shade"></div>
+      </div>
+      <div class="spotlight-number" aria-hidden="true">41 <span>ORIGINAL<br>PROJECTS</span></div>
+    </section>
+
+    <section class="collection" id="collection">
+      <div class="collection-heading">
+        <div>
+          <div class="section-kicker">THE COLLECTION</div>
+          <h2>All sites <span id="visible-count">41</span></h2>
+        </div>
+        <label class="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="gallery-search" type="search" placeholder="Find a site..." autocomplete="off" aria-label="Search sites">
+          <kbd>/</kbd>
+        </label>
+      </div>
+      <div class="browse-tools">
+        <div class="genre-list" id="gallery-filters" aria-label="Filter sites"></div>
+        <span class="order-label"><span aria-hidden="true">↕</span> NUMBERED ORDER</span>
+      </div>
+      <div class="thumbnail-grid" id="project-list"></div>
+      <div class="empty-message" id="empty-message" hidden>
+        <span aria-hidden="true">⌕</span>
+        <h2>No sites found</h2>
+        <p>Try a different search or filter.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="stream-footer">
+    <a class="stream-brand" href="gallery.html"><span class="brand-icon">m</span><span>mini<span class="brand-light">sites</span></span></a>
+    <span>41 originals. No two quite alike.</span>
+    <a href="#collection">Back to top ↑</a>
+  </footer>
+</body>
+</html>

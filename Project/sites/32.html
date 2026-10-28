@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Weather Status</title> 
+ 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #eef4f8; 
+            text-align: center; 
+            padding: 50px 20px; 
+        } 
+ 
+        h1 { 
+            color: #263746; 
+        } 
+ 
+        .weather-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            flex-wrap: wrap; 
+            margin-top: 40px; 
+        } 
+ 
+        .weather-panel { 
+            width: 180px; 
+            padding: 30px 20px; 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 10px #00000020; 
+            transition: 0.3s; 
+            cursor: pointer; 
+        } 
+ 
+        .weather-panel:hover { 
+            background: #d9f2ff; 
+            transform: translateY(-8px); 
+            box-shadow: 0 8px 18px #00000030; 
+        } 
+ 
+        .icon { 
+            font-size: 50px; 
+        } 
+ 
+        .weather-panel h2 { 
+            color: #263746; 
+        } 
+ 
+        .message { 
+            margin-top: 15px; 
+            font-weight: bold; 
+            color: #0077aa; 
+            min-height: 24px; 
+        } 
+    </style> 
+</head> 
+ 
+<body> 
+ 
+    <h1>Weather Status</h1> 
+    <p>Move your mouse over a weather panel!</p> 
+ 
+    <div class="weather-container"> 
+ 
+        <div class="weather-panel" 
+             onmouseover="showMessage(this, 'Perfect Day!')" 
+             onmouseout="hideMessage(this)"> 
+            <div class="icon">  </div> 
+            <h2>Sunny</h2> 
+            <p class="message"></p> 
+        </div> 
+ 
+        <div class="weather-panel" 
+             onmouseover="showMessage(this, 'Cloudy Weather')" 
+             onmouseout="hideMessage(this)"> 
+            <div class="icon">  </div> 
+            <h2>Cloudy</h2> 
+            <p class="message"></p> 
+        </div> 
+ 
+        <div class="weather-panel" 
+             onmouseover="showMessage(this, 'Carry an Umbrella!')" 
+             onmouseout="hideMessage(this)"> 
+            <div class="icon">     </div> 
+            <h2>Rainy</h2> 
+            <p class="message"></p> 
+        </div> 
+ 
+    </div> 
+ 
+    <script> 
+        function showMessage(panel, message) { 
+            panel.querySelector(".message").textContent = message; 
+            panel.style.border = "2px solid #0099cc"; 
+        } 
+ 
+        function hideMessage(panel) { 
+            panel.querySelector(".message").textContent = ""; 
+            panel.style.border = "2px solid transparent"; 
+        } 
+    </script> 
+ 
+</body> 
+</html>

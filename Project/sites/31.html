@@ -1,0 +1,61 @@
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .signal-post {
+            width: 100px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .light {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #555;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #msg {
+
+            font-size: 24px;
+            font-weight: bold;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="signal-post">
+            <div class="light" id="red" data-color="red" data-text="STOP"></div>
+            <div class="light" id="yellow" data-color="yellow" data-text="READY"></div>
+            <div class="light" id="green" data-color="green" data-text="GO"></div>
+        </div>
+        <p id="msg"></p>
+    </div>
+    <script>
+        const lights = document.querySelectorAll('.light');
+        const msg = document.getElementById('msg');
+        lights.forEach(light => {
+            light.addEventListener('mouseover', () => {
+                light.style.backgroundColor = light.getAttribute('data-color');
+                msg.textContent = light.getAttribute('data-text');
+                msg.style.color = light.getAttribute('data-color');
+            });
+            light.addEventListener('mouseout', () => {
+                light.style.backgroundColor = '#555';
+                msg.textContent = '';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>GameZone</title> 
+ 
+    <style> 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        } 
+ 
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #111; 
+            color: white; 
+        } 
+ 
+        /* Header */ 
+        header { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 50px; 
+            background: #151515; 
+            z-index: 1000; 
+        } 
+ 
+        .logo { 
+            font-size: 28px; 
+            font-weight: bold; 
+            color: #00ff88; 
+        } 
+ 
+        nav { 
+            display: flex; 
+            align-items: center; 
+            gap: 30px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: white; 
+            font-size: 16px; 
+            transition: color 0.3s; 
+        } 
+ 
+        nav a:hover { 
+            color: #00ff88; 
+        } 
+ 
+        .btn { 
+            background: #00ff88; 
+            color: #111; 
+            border: none; 
+            padding: 12px 22px; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s; 
+        } 
+ 
+        .btn:hover { 
+            background: white; 
+            transform: scale(1.05); 
+        } 
+ 
+        /* Gaming Banner */ 
+        .banner { 
+            height: 70vh; 
+            margin-top: 75px; 
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.65), 
+                                rgba(0, 0, 0, 0.65)), 
+                url("https://images.unsplash.com/photo-1542751371-adc38448a05e") 
+                center/cover no-repeat; 
+ 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 30px; 
+        } 
+ 
+        .banner-content h1 { 
+            font-size: 48px; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .banner-content p { 
+            font-size: 20px; 
+            margin-bottom: 30px; 
+            color: #ddd; 
+        } 
+ 
+        .explore-btn { 
+            display: inline-block; 
+            text-decoration: none; 
+            background: #00ff88; 
+            color: #111; 
+            padding: 14px 28px; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            transition: 0.3s; 
+        } 
+ 
+        .explore-btn:hover { 
+            background: white; 
+            transform: scale(1.05); 
+        } 
+ 
+        /* Responsive Design */ 
+        @media (max-width: 800px) { 
+            header { 
+                padding: 15px 20px; 
+                flex-wrap: wrap; 
+                gap: 15px; 
+            } 
+ 
+            nav { 
+                gap: 12px; 
+                flex-wrap: wrap; 
+            } 
+ 
+            .banner-content h1 { 
+                font-size: 34px; 
+            } 
+ 
+            .banner-content p { 
+                font-size: 16px; 
+            } 
+        } 
+    </style> 
+</head> 
+ 
+<body> 
+ 
+    <header> 
+        <div class="logo">GameZone</div> 
+ 
+        <nav> 
+            <a href="#home">Home</a> 
+            <a href="#games">Games</a> 
+            <a href="#tournaments">Tournaments</a> 
+            <a href="#news">News</a> 
+            <a href="#contact">Contact</a> 
+            <button class="btn">Play Now</button> 
+        </nav> 
+    </header> 
+ 
+    <section class="banner" id="home"> 
+        <div class="banner-content"> 
+            <h1>Level Up Your Gaming Experience</h1> 
+            <p>Join exciting tournaments and explore the latest games.</p> 
+            <a href="#games" class="explore-btn">Explore Games</a> 
+        </div> 
+    </section> 
+ 
+</body> 
+</html>

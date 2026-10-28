@@ -1,0 +1,40 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 250px;
+        }
+        p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="search" placeholder="Enter student name...">
+    <p id="keyDisplay">Key pressed: </p>
+    <p id="status"></p>
+    <script>
+        const search = document.getElementById('search');
+        const keyDisplay = document.getElementById('keyDisplay');
+        const status = document.getElementById('status');
+        search.addEventListener('keydown', (e) => {
+            keyDisplay.textContent = `Key pressed: ${e.key}`;
+            if (e.key === 'Enter') {
+                status.textContent = 'Searching for student...';
+
+            } else if (e.key === 'Escape') {
+                search.value = '';
+                status.textContent = '';
+                keyDisplay.textContent = 'Key pressed: ';
+            }
+        });
+    </script>
+</body>
+</html>

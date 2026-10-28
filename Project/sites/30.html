@@ -1,0 +1,50 @@
+<html>
+<head>
+    <style>
+        .card {
+            width: 250px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .hover-effect {
+            opacity: 0.7;
+            transform: scale(1.05);
+        }
+        #info, #details {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img id="img" src="images.jpeg" alt="Product">
+        <h3>Product Name</h3>
+        <p id="info"></p>
+        <button id="btn">View Details</button>
+        <p id="details"></p>
+    </div>
+    <script>
+        const img = document.getElementById('img');
+        const info = document.getElementById('info');
+        const btn = document.getElementById('btn');
+        const details = document.getElementById('details');
+        img.addEventListener('mouseover', () => {
+            img.classList.add('hover-effect');
+            info.textContent = 'High-quality premium item.';
+        });
+        img.addEventListener('mouseout', () => {
+            img.classList.remove('hover-effect');
+            info.textContent = '';
+        });
+        btn.addEventListener('click', () => {
+            details.textContent = 'Price: $99.99 | In Stock';
+        });
+    </script>
+</body>
+</html>

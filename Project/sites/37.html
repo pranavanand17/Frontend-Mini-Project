@@ -1,0 +1,123 @@
+<html> 
+<head> 
+    <title>Online Exam Interface</title> 
+    <style> 
+        body { 
+            font-family: sans-serif; 
+            background-color: #ffffff; 
+            color: #000000; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        } 
+        .quiz-container { 
+            max-width: 400px; 
+            width: 100%; 
+            padding: 20px; 
+        } 
+        h3 { 
+            font-size: 18px; 
+            font-weight: 600; 
+            margin-bottom: 24px; 
+        } 
+
+        .options { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0 0 24px 0; 
+        } 
+        .option { 
+            padding: 12px; 
+            margin: 8px 0; 
+            cursor: pointer; 
+            border: 1px solid #e0e0e0; 
+            transition: all 0.15s ease; 
+        } 
+        .option.selected { 
+            background-color: #000000; 
+            border-color: #000000; 
+            color: #ffffff; 
+        } 
+        button { 
+            width: 100%; 
+            padding: 12px; 
+            background-color: #ffffff; 
+            color: #000000; 
+            border: 1px solid #000000; 
+            font-size: 14px; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            transition: all 0.15s ease; 
+        } 
+        button.hovered { 
+            background-color: #000000; 
+            color: #ffffff; 
+        } 
+        #message { 
+            margin-top: 20px; 
+            text-align: center; 
+            font-size: 14px; 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<div class="quiz-container"> 
+    <h3>Question: What system does the earth follow?</h3> 
+     
+    <ul class="options"> 
+        <li class="option" onclick="selectOption(this)">A) Lunarcentrism</li> 
+        <li class="option" onclick="selectOption(this)">B) Geocentrism</li> 
+        <li class="option" onclick="selectOption(this)">C) Heliocentrism</li> 
+        <li class="option" onclick="selectOption(this)">D) All of the above</li> 
+    </ul> 
+ 
+    <button id="submitBtn">Submit Answer</button> 
+    <div id="message"></div> 
+</div> 
+ 
+<script> 
+    const submitBtn = document.getElementById('submitBtn'); 
+    const messageDiv = document.getElementById('message'); 
+    let hasSelected = false; 
+ 
+    function selectOption(element) { 
+        const options = document.querySelectorAll('.option'); 
+        options.forEach(opt => opt.classList.remove('selected')); 
+        element.classList.add('selected'); 
+        hasSelected = true; 
+        messageDiv.textContent = ""; 
+    } 
+ 
+    submitBtn.addEventListener('mouseover', function() { 
+        submitBtn.classList.add('hovered'); 
+    }); 
+ 
+    submitBtn.addEventListener('mouseout', function() { 
+        submitBtn.classList.remove('hovered'); 
+    }); 
+ 
+    function submitAnswer() { 
+        if (hasSelected) { 
+            messageDiv.textContent = "Answer Submitted Successfully!"; 
+            messageDiv.style.color = "#000000"; 
+        } else { 
+            messageDiv.textContent = "Please select an option first."; 
+            messageDiv.style.color = "#000000"; 
+        } 
+    } 
+ 
+    submitBtn.addEventListener('click', submitAnswer); 
+ 
+    document.addEventListener('keydown', function(event) { 
+        if (event.key === 'Enter') { 
+            submitAnswer(); 
+        } 
+    }); 
+</script> 
+ 
+</body> 
+</html>

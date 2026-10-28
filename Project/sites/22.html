@@ -1,0 +1,93 @@
+<!doctype html> 
+<html> 
+<head> 
+  <title>NT Symposium Registration</title> 
+</head> 
+<body> 
+  <h1>Registration Portal</h1> 
+ 
+  <audio controls autoplay> 
+    <source src="africa.mp3" type="audio/mpeg"> 
+  </audio> 
+ 
+  <h2>Intro Video</h2> 
+  <video controls width="400"> 
+    <source src="not so still world.mp4" type="video/mp4"> 
+  </video> 
+ 
+  <form action="#" method="post" enctype="multipart/form-data"> 
+    <div> 
+      <input type="text" name="participant_name" placeholder="Participant Name" required 
+minlength="3" maxlength="60"> 
+    </div> 
+ 
+    <div> 
+      <input type="text" name="register_number" placeholder="Register Number" required 
+pattern="[A-Za-z0-9]{5,20}" maxlength="20"> 
+    </div> 
+ 
+    <div> 
+      <input type="text" name="college_name" placeholder="College Name" required 
+minlength="2" maxlength="80"> 
+    </div> 
+ 
+    <div> 
+      <input type="email" name="email_id" placeholder="Email ID" required maxlength="100"> 
+    </div> 
+ 
+    <div> 
+      <input type="tel" name="mobile_number" placeholder="Mobile Number" required 
+pattern="[0-9]{10}" minlength="10" maxlength="10"> 
+    </div> 
+ 
+    <div> 
+      <input type="date" name="date_of_birth" required> 
+    </div> 
+ 
+    <div> 
+      <label><input type="radio" name="gender" value="Male" required> Male</label> 
+      <label><input type="radio" name="gender" value="Female"> Female</label> 
+      <label><input type="radio" name="gender" value="Other"> Other</label> 
+    </div> 
+ 
+    <div> 
+      <select name="department" required> 
+        <option value="" disabled selected>Department</option> 
+        <option value="CSE">CSE</option> 
+        <option value="ECE">ECE</option> 
+        <option value="EEE">EEE</option> 
+        <option value="ME">ME</option> 
+        <option value="CE">CE</option> 
+        <option value="IT">IT</option> 
+        <option value="Other">Other</option> 
+      </select> 
+    </div> 
+ 
+    <div> 
+      <label><input type="checkbox" name="skills" value="Web Development"> Web 
+Development</label> 
+      <label><input type="checkbox" name="skills" value="App Development"> App 
+Development</label> 
+      <label><input type="checkbox" name="skills" value="Data Science"> Data Science</label> 
+      <label><input type="checkbox" name="skills" value="Machine Learning"> Machine 
+Learning</label> 
+      <label><input type="checkbox" name="skills" value="Cybersecurity"> Cybersecurity</label> 
+      <label><input type="checkbox" name="skills" value="Cloud Computing"> Cloud 
+Computing</label> 
+    </div> 
+ 
+    <div> 
+      <input type="file" name="student_id_card" accept="image/*,.pdf" required> 
+    </div> 
+ 
+    <div> 
+      <input type="date" name="event_date" required> 
+    </div> 
+ 
+    <div> 
+      <button type="submit">Submit</button> 
+      <button type="reset">Reset</button> 
+    </div> 
+  </form> 
+</body> 
+</html>

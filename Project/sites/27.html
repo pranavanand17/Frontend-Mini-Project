@@ -1,0 +1,140 @@
+<html> 
+<head> 
+    <title>Student Registration</title> 
+ 
+    <script> 
+        function validate() { 
+ 
+            var name = document.getElementById("name").value; 
+            var email = document.getElementById("email").value; 
+ 
+            var namePattern = /^[A-Za-z ]+$/; 
+            var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/; 
+ 
+
+            document.getElementById("nameError").innerHTML = ""; 
+            document.getElementById("emailError").innerHTML = ""; 
+            document.getElementById("genderError").innerHTML = ""; 
+            document.getElementById("skillError").innerHTML = ""; 
+            document.getElementById("output").innerHTML = ""; 
+ 
+            if (name == "") { 
+                document.getElementById("nameError").innerHTML = "Name is required"; 
+                return false; 
+            } 
+ 
+            if (!namePattern.test(name)) { 
+                document.getElementById("nameError").innerHTML = "Name should contain only 
+alphabets and spaces"; 
+                return false; 
+            } 
+ 
+            if (email == "") { 
+                document.getElementById("emailError").innerHTML = "Email is required"; 
+                return false; 
+            } 
+ 
+            if (!emailPattern.test(email)) { 
+                document.getElementById("emailError").innerHTML = "Enter a valid email"; 
+                return false; 
+            } 
+ 
+            var gender = document.getElementsByName("gender"); 
+            var genderSelected = false; 
+ 
+            for (var i = 0; i < gender .length; i++) { 
+                if (gender[i].checked) { 
+                    genderSelected = true; 
+                } 
+            } 
+ 
+            if (!genderSelected) { 
+                document.getElementById("genderError").innerHTML = "Select one gender"; 
+                return false; 
+            } 
+ 
+            var skills = document.getElementsByName("skill"); 
+            var skillSelected = false; 
+ 
+            for (var i = 0; i < skills.length; i++) { 
+                if (skills[i].checked) { 
+                    skillSelected = true; 
+                } 
+            } 
+ 
+            if (!skillSelected) { 
+                document.getElementById("skillError").innerHTML = "Select at least one skill"; 
+                return false; 
+            } 
+ 
+            document.getElementById("output").innerHTML = "Registration Successful"; 
+ 
+            return false; 
+        } 
+    </script> 
+</head> 
+ 
+<body> 
+ 
+<h1>Student Registration Form</h1> 
+ 
+<form onsubmit="return validate()"> 
+ 
+    Student Name: 
+    <input type="text" id="name"> 
+    <br> 
+    <span id="nameError" style="color:red"></span> 
+ 
+    <br><br> 
+ 
+    Email ID: 
+    <input type="text" id="email"> 
+    <br> 
+    <span id="emailError" style="color:red"></span> 
+ 
+    <br><br> 
+ 
+    Gender: 
+    <br> 
+ 
+    <input type="radio" name="gender" value="Male"> 
+    Male 
+ 
+    <input type="radio" name="gender" value="Female"> 
+    Female 
+ 
+    <input type="radio" name="gender" value="Other"> 
+    Other 
+ 
+    <br> 
+    <span id="genderError" style="color:red"></span> 
+ 
+    <br><br> 
+ 
+    Skills: 
+    <br> 
+ 
+    <input type="checkbox" name="skill" value="HTML"> 
+    HTML 
+ 
+    <input type="checkbox" name="skill" value="CSS"> 
+    CSS 
+ 
+    <input type="checkbox" name="skill" value="JavaScript"> 
+    JavaScript 
+ 
+    <br> 
+    <span id="skillError" style="color:red"></span> 
+ 
+    <br><br> 
+ 
+    <input type="submit" value="Register"> 
+ 
+</form> 
+ 
+<br> 
+ 
+<div id="output"></div> 
+ 
+</body> 
+</html>

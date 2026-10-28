@@ -1,0 +1,29 @@
+<html>
+<head>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <p id="msg"></p>
+
+    <script>
+        const box = document.getElementById('box');
+        const msg = document.getElementById('msg');
+        box.addEventListener('click', () => {
+            box.style.backgroundColor = box.style.backgroundColor === 'red' ? 'blue' : 'red';
+        });
+        box.addEventListener('mouseover', () => {
+            msg.textContent = 'Mouse is over the box';
+        });
+        box.addEventListener('mouseout', () => {
+            msg.textContent = '';
+        });
+    </script>
+</body>
+</html>
